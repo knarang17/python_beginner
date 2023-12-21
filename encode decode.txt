@@ -1,0 +1,37 @@
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+def decrypt(msg,shift):
+  decode_msg =''
+  for a in range (len(msg)):
+     #print(msg[a])
+     x=letters.index(msg[a])
+     decode_msg += letters[x-int(shift)]
+  print(f"decodes message:{decode_msg}")
+  
+def encrypt(msg,shift):
+ encode_msg=''
+ #print(msg,shift)
+ for a in range (len(msg)):
+   #print(msg[a])
+   x=letters.index(msg[a])
+   encode_msg += letters[x+int(shift)]
+ print(f"Encoded message:{encode_msg}")
+  
+def greet():
+ process=input(f"Type 'encode' for encrypt ,and'decode' for decrypt\n")
+ msg_input=input('Type the message:\n')
+ shift=input('Type the shift number:\n')
+ if process == 'encode':
+   #print('true')
+  encrypt(msg_input,shift)
+ elif process == 'decode':
+  decrypt(msg_input,shift)
+ else:
+  print('Invalid Input')
+def main():
+  greet()
+  again=''
+  again = input(f"type 'yes' if you want to go gain , otherwise type 'no' ").lower()
+  while again != 'no':
+   greet()
+    
+main()
